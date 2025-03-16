@@ -1,7 +1,8 @@
 # py-lot
 
 An Electron application with Vue and TypeScript
-[PyLot](/src/renderer/src/assets/logo.webp);
+
+![PyLot](/src/renderer/src/assets/logo.webp);
 
 ## Recommended IDE Setup
 
