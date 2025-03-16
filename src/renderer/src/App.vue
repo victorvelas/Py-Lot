@@ -1,26 +1,19 @@
 <script setup lang="ts">
 
 	import { ref, onMounted } from "vue";
-
 	import Versions from './components/Versions.vue'
-
 	const appName = ref<string>("");	
 	const appVersion = ref<string>("");	
-	
 	const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
-
 	onMounted(async () => {
 		appName.value = await window.electron.ipcRenderer.invoke('get-app-name');
 		appVersion.value = await window.electron.ipcRenderer.invoke('get-app-version');
 	});
-
-	
-
-
 </script>
 
 <template>
 	<img alt="logo" class="logo" src="./assets/electron.svg" />
+	<!-- <img alt="logo" class="logo" src="./assets/logo.webp" /> -->
 	<div class="creator">Powered by electron-vite</div>
 	<div class="text">
 		Build an Electron app "{{ appName }} {{ appVersion }}" with
