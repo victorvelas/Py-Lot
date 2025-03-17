@@ -1,7 +1,86 @@
-@media (prefers-color-scheme: dark) {
-    body { background: #333; color: white; }
+*::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
 }
-  
+
+*::-webkit-scrollbar-track {
+    border-radius: 10px;
+    margin: 4px 0;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    background-clip: padding-box;
+    transition: all 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+* {
+    scrollbar-width: thin;
+}
+
+header {
+    backdrop-filter: blur(5px) !important;
+}
+
+
+body, header, input {
+    transition: all 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    body { background: var(--ev-c-black-soft); color: var(--ev-c-white); }
+    header {
+        background: rgba(49, 49, 49, 0.2) !important;
+        backdrop-filter: blur(5px) !important;
+    }
+    input {
+        color: var(--ev-c-white);
+        background: rgba(15, 15, 15, 0.339);
+    }
+    *::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.03);
+    }
+    *::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    }
+    *::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+    }
+    * {
+        scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.03);
+    }
+    *:hover {
+        scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+    }
+}
+
 @media (prefers-color-scheme: light) {
-    body { background: #ddd; color: black; }
+    body { background: var(--ev-c-white-mute); color: var(--ev-c-black-soft); }
+    header {
+        background: var(--ev-c-white-soft) !important;
+    }
+    input {
+        color: var(--ev-c-black-soft);
+        background: rgba(133, 133, 133, 0.144);
+    }
+    *::-webkit-scrollbar-track {
+        background: rgba(40, 40, 40, 0.144);
+    }
+    *::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, rgba(59, 59, 59, 0.73) 0%, rgba(222, 222, 222, 0.793) 100%);
+    }
+    *::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, rgb(252, 252, 252) 0%, rgba(153, 153, 153, 0.2) 100%);
+    }
+    * {
+        scrollbar-color: rgba(219, 219, 219, 0.693) rgba(173, 173, 173, 0.031);
+    }
+    *:hover {
+        scrollbar-color: rgba(73, 73, 73, 0.3) rgba(74, 74, 74, 0.05);
+    }
 }

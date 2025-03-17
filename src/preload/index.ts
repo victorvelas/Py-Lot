@@ -14,7 +14,8 @@ if (process.contextIsolated) {
 		contextBridge.exposeInMainWorld('api', api);
 		contextBridge.exposeInMainWorld('darkMode', {
 			toggle: () => ipcRenderer.invoke('dark-mode:toggle'),
-			system: () => ipcRenderer.invoke('dark-mode:system')
+			system: () => ipcRenderer.invoke('dark-mode:system'),
+			isDarkMode: () => ipcRenderer.invoke('is-dark-mode')
 		})
 	} catch (error) {
 		console.error(error)
