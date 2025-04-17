@@ -1,25 +1,27 @@
 <script setup lang="ts">
     import InputBrowser from "./InputBrowser.vue"
-    import { ref, onMounted } from "vue";
+    import { ref } from "vue";
 
     const updateIcon = () => {
         let isDark = (async () => {
+            // @ts-ignore
             return await window.darkMode.isDarkMode()
         })();
+        // @ts-ignore
         return isDark ? 'sun' : 'moon';
     }
 
-    const menu = [];
+    // const menu = [];
 
-    const dmIcon:string = ref<string>(updateIcon());
+    const dmIcon = ref<string>(updateIcon());
 
-    let timeoutId: number|null = null;
     const searchProj = (ev: InputEvent): void => {
         const inputElement = ev.target as HTMLInputElement;
         console.log("Searching for:", inputElement.value);
     };
 
     const toggleColorMode = async function () {
+        // @ts-ignore
         const isDarkMode = await window.darkMode.toggle();
         dmIcon.value = isDarkMode ? 'sun' : 'moon';
         return isDarkMode;
@@ -30,7 +32,7 @@
         <nav>
             <section>
                 <InputBrowser
-                    delay="200"
+                    :delay="200"
                     @onSearch="searchProj($event as InputEvent)"
                     placeholder="Search..."
                 />
@@ -52,11 +54,11 @@
                         <i :class="`iconify gravity-ui--${dmIcon}`"></i> My Projects
                     </a>
                 </ol>
-                <ol class="menu-item" v-for="(lnk, index) in menu" :key="index">
+                <!-- <ol class="menu-item" v-for="(lnk, index) in menu" :key="index">
                     <router-link :to="lnk.path" class="menu-link">
-                        {{ lnk.name }}
+                        {{ lnk?.name  }}
                     </router-link>
-                </ol>
+                </ol> -->
             </ul>
         </nav>
     </header>
