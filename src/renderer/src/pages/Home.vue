@@ -2,7 +2,7 @@
     import { ref, onMounted } from "vue";
     import { useAppDataStore } from "@renderer/stores/appData";
     const appDataStore = useAppDataStore();
-    const appName:string = ref<string>("");
+    const appName = ref<string>("");
     onMounted(async () => {
         appName.value = await appDataStore.getAppName;
     })
